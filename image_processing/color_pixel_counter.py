@@ -31,7 +31,7 @@ def main(options):
         for x in range(width):
             for y in range(height):
                 pixel = img.getpixel( (x,y) )
-                if False not in map(operator.lt, lower, pixel) and False not in map(operator.gt, upper, pixel):
+                if False not in map(operator.le, lower, pixel) and False not in map(operator.ge, upper, pixel):
                     count_pixel += 1
                     if options.mark:
                         img.putpixel( (x,y), (0,0,0))
