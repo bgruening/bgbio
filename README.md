@@ -1,4 +1,5 @@
 bgbio
 =====
 
-bioinformatic tools, primarily in Python
+Bioinformatic tools, primarily written in Python for analysis of biological data.
+
