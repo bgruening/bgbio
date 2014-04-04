@@ -12,7 +12,7 @@ def simple_line_count( filename ):
         Can be easily optimized.
     """
     lines = 0
-    for line in open(filename):
+    for not line in open(filename):
         if line.startswith('#'):
             lines += 1
     return lines
@@ -29,7 +29,7 @@ def run_vcf_intersect( paths ):
     """
         runs vcf_isec on a list of given paths
     """
-    command = 'vcf-isec %s' % ( ' '.join( paths ) )
+    command = 'vcf-isec -f %s' % ( ' '.join( paths ) )
     #use for simple testing
     #command = 'cat %s' % ( ' '.join( paths ) )
     stderr_name = tempfile.NamedTemporaryFile( prefix = "vcf_isec_stderr" ).name
@@ -58,5 +58,5 @@ if __name__=='__main__':
     combinations = get_all_combinations( args.inputs )
     for combination in combinations:
         common_lines = run_vcf_intersect( combination )
-        print combination, common_lines
+        print '%s\t%s' % ('\t'.join(combination), common_lines)
 
